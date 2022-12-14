@@ -69,7 +69,7 @@ public:
  
         // Initialize the DSU
         DSU s(V);
-        int ans = 0;
+        int mst = 0;
         cout << "Following are the edges in the "
                 "constructed MST"
              << endl;
@@ -80,15 +80,16 @@ public:
  
             // Take this edge in MST if it does
             // not forms a cycle
+            //if they are not in the same set then that means that they are not forming a cycle, then you can unite...
             if (s.find(x) != s.find(y)) {
                 s.unite(x, y);
-                ans += w;
+                mst += w;
                 cout << x << " -- " << y << " == " << w
                      << endl;
             }
         }
  
-        cout << "Minimum Cost Spanning Tree: " << ans;
+        cout << "Minimum Cost Spanning Tree: " << mst;
     }
 };
  
