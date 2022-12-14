@@ -29,8 +29,7 @@ void printMST(int parent[], int graph[V][V])
 {
   for(int i=1; i < V; i++)
   {
-    cout<<parent[i]<<"-"<<"i<<"\t"
-      <<graph[i][parent[i]]<<"\n";
+    cout<<parent[i]<<"-"<<"i"<<"\t"<<graph[i][parent[i]]<<"\n";
   }
 }
 
