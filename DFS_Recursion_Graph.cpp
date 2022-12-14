@@ -14,6 +14,11 @@ public:
     // DFS traversal of the vertices
     // reachable from v
     void DFS(int v);
+  
+    //function used by DFS2, which is another method of performing DFS
+    void DFSUtil(int v);
+    //another way for DFS
+    void DFS2();
 };
  
 void Graph::addEdge(int v, int w)
@@ -35,7 +40,25 @@ void Graph::DFS(int v)
         if (!visited[*i])
             DFS(*i);
 }
+
+void Graph::DFSUtil(int v)
+{
+      visited[v] = true;
+    cout << v << " ";
  
+    // Recur for all the vertices adjacent to this vertex
+    list<int>::iterator i;
+    for (i = adj[v].begin(); i != adj[v].end(); ++i)
+        if (!visited[*i])
+            DFSUtil(*i);
+}
+
+void Graph::DFS2(){
+   for (auto i : adj)
+        if (visited[i.first] == false)
+            DFSUtil(i.first);
+}
+
 // Driver's code
 int main()
 {
