@@ -21,6 +21,17 @@ void printDFS(vector<vector<int>> v, int startVertex, vector<bool> &visited)
   }
 }
 
+void printDisconnectedDFS(vector<vector<int>> matrix)
+{
+  int n = matrix.size();
+  vector<bool> visited(n,false);
+  for(int i=0; i < n; i++)
+  {
+    if(!visited[i])
+      printDFS(matrix,i,vistied);
+  }
+}
+
 void printBFS(vector<vector<int>> v, int startVertex, vector<bool> &visited)
 {
   int n = v.size();
@@ -46,6 +57,17 @@ void printBFS(vector<vector<int>> v, int startVertex, vector<bool> &visited)
   }
 }
 
+void printDisconnectedBFS(vector<vector<int>> matrix)
+{
+  int n = matrix.size();
+  vector<bool> visited(n,false);
+  for(int i=0; i < n; i++)
+  {
+    if(!visited[i])
+      printBFS(matrix,i,visited);
+  }
+}
+
 
 int main()
 {
@@ -64,6 +86,5 @@ int main()
   vector<bool> visited(n,false);
   
   printDFS(matrix,0,visited);
-  printBFS(matrix,0,visited);
-  
+  printBFS(matrix,0,visited); 
 }
